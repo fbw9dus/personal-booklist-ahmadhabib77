@@ -27,3 +27,34 @@ const books = [
     img: "https://eloquentjavascript.net/img/cover.jpg"
   }
 ];
+var ul = document.getElementsByTagName("ul")
+ul[0].style.listStyleType="none"
+books.forEach(myfunction)
+function myfunction(book){
+  var li = document.createElement("li")
+  li.classList.add("book")
+  ul[0].appendChild(li)
+  var imgSm = document.createElement("img")
+  var titilSm = document.createElement("h1")
+  titilSm.style.fontSize = "18px"
+  var authorSm = document.createElement("p")
+  var bestätigungSm =document.createElement("button")
+  imgSm.classList.add("book-cover")
+imgSm.src=book.img
+titilSm.textContent = book.title
+authorSm.textContent=book.author
+if(book.alreadyRead){
+  bestätigungSm.textContent="Read";
+  bestätigungSm.style.backgroundColor="red";
+  bestätigungSm.style.borderRadius="15px"
+}
+else{
+  bestätigungSm.textContent="To read"
+  bestätigungSm.style.backgroundColor="green";
+  bestätigungSm.style.borderRadius="15px"
+}
+li.appendChild(imgSm)
+li.appendChild(titilSm)
+li.appendChild(authorSm)
+li.appendChild(bestätigungSm)
+}
